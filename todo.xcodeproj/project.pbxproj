@@ -31,6 +31,9 @@
 		175EC7AA27B83AC7009BCC9D /* TaskEditorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7A527B83AC7009BCC9D /* TaskEditorModels.swift */; };
 		175EC7AB27B83AC7009BCC9D /* TaskEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7A627B83AC7009BCC9D /* TaskEditorInteractor.swift */; };
 		175EC7AD27B83AE8009BCC9D /* TaskEditorDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7AC27B83AE8009BCC9D /* TaskEditorDataStore.swift */; };
+		175EC7B027B83CD6009BCC9D /* ItemCellModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7AF27B83CD6009BCC9D /* ItemCellModelable.swift */; };
+		175EC7B327B83D1D009BCC9D /* ItemTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7B127B83D1D009BCC9D /* ItemTableCellViewController.swift */; };
+		175EC7B427B83D1D009BCC9D /* ItemTableCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 175EC7B227B83D1D009BCC9D /* ItemTableCellViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		175EC7A527B83AC7009BCC9D /* TaskEditorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorModels.swift; sourceTree = "<group>"; };
 		175EC7A627B83AC7009BCC9D /* TaskEditorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorInteractor.swift; sourceTree = "<group>"; };
 		175EC7AC27B83AE8009BCC9D /* TaskEditorDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDataStore.swift; sourceTree = "<group>"; };
+		175EC7AF27B83CD6009BCC9D /* ItemCellModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellModelable.swift; sourceTree = "<group>"; };
+		175EC7B127B83D1D009BCC9D /* ItemTableCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableCellViewController.swift; sourceTree = "<group>"; };
+		175EC7B227B83D1D009BCC9D /* ItemTableCellViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableCellViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,7 @@
 		175EC78C27B82324009BCC9D /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				175EC7AE27B83CC2009BCC9D /* UI */,
 				175EC78D27B82345009BCC9D /* TaskListViewController.swift */,
 				175EC78E27B82345009BCC9D /* TaskListViewController.xib */,
 				175EC79527B8235E009BCC9D /* TaskListInteractor.swift */,
@@ -167,6 +174,16 @@
 				175EC7AC27B83AE8009BCC9D /* TaskEditorDataStore.swift */,
 			);
 			path = TaskEditor;
+			sourceTree = "<group>";
+		};
+		175EC7AE27B83CC2009BCC9D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				175EC7AF27B83CD6009BCC9D /* ItemCellModelable.swift */,
+				175EC7B127B83D1D009BCC9D /* ItemTableCellViewController.swift */,
+				175EC7B227B83D1D009BCC9D /* ItemTableCellViewController.xib */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				175EC77727B81F27009BCC9D /* LaunchScreen.storyboard in Resources */,
+				175EC7B427B83D1D009BCC9D /* ItemTableCellViewController.xib in Resources */,
 				175EC79027B82345009BCC9D /* TaskListViewController.xib in Resources */,
 				175EC7A127B83AAF009BCC9D /* TaskEditorViewController.xib in Resources */,
 				175EC77427B81F27009BCC9D /* Assets.xcassets in Resources */,
@@ -251,11 +269,13 @@
 				175EC78927B820A0009BCC9D /* CoreDataStack.swift in Sources */,
 				175EC7A727B83AC7009BCC9D /* TaskEditorPresenter.swift in Sources */,
 				175EC76827B81F24009BCC9D /* AppDelegate.swift in Sources */,
+				175EC7B327B83D1D009BCC9D /* ItemTableCellViewController.swift in Sources */,
 				175EC78727B8206A009BCC9D /* Task+TaskObjectConformance.swift in Sources */,
 				175EC79827B8235E009BCC9D /* TaskListRouter.swift in Sources */,
 				175EC78F27B82345009BCC9D /* TaskListViewController.swift in Sources */,
 				175EC76A27B81F24009BCC9D /* SceneDelegate.swift in Sources */,
 				175EC7AB27B83AC7009BCC9D /* TaskEditorInteractor.swift in Sources */,
+				175EC7B027B83CD6009BCC9D /* ItemCellModelable.swift in Sources */,
 				175EC78327B82028009BCC9D /* Task+CoreDataProperties.swift in Sources */,
 				175EC77227B81F24009BCC9D /* todo.xcdatamodeld in Sources */,
 				175EC7AD27B83AE8009BCC9D /* TaskEditorDataStore.swift in Sources */,

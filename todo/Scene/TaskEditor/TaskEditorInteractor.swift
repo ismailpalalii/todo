@@ -10,32 +10,36 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import Foundation
 
-protocol TaskEditorBusinessLogic
-{
-  func doSomething(request: TaskEditor.Something.Request)
+protocol TaskEditorBusinessLogic: AnyObject {
+  func setupInitials(request: TaskEditor.SetupInitials.Request)
+  func completeEntry(request: TaskEditor.CompleteEntry.Request)
 }
 
-protocol TaskEditorDataStore
-{
-  //var name: String { get set }
-}
-
-class TaskEditorInteractor: TaskEditorBusinessLogic, TaskEditorDataStore
-{
-  var presenter: TaskEditorPresentationLogic?
-  var worker: TaskEditorWorker?
-  //var name: String = ""
+final class TaskEditorInteractor {
+  private let dataStore: TaskEditorDataStoreProtocol
+  private let presenter: TaskEditorPresentationLogic
   
-  // MARK: Do something
-  
-  func doSomething(request: TaskEditor.Something.Request)
-  {
-    worker = TaskEditorWorker()
-    worker?.doSomeWork()
+  init(dataStore: TaskEditorDataStoreProtocol,
+       presenter: TaskEditorPresentationLogic) {
     
-    let response = TaskEditor.Something.Response()
-    presenter?.presentSomething(response: response)
+    self.dataStore = dataStore
+    self.presenter = presenter
   }
 }
+
+extension TaskEditorInteractor: TaskEditorBusinessLogic {
+  func setupInitials(request: TaskEditor.SetupInitials.Request) {
+    let response = TaskEditor.SetupInitials.Response(initialText: dataStore.initialText)
+    presenter.presentInitials(response: response)
+  }
+  
+  func completeEntry(request: TaskEditor.CompleteEntry.Request) {
+    dataStore.taskEditorOperationDidEnd?(request.text)
+    
+    let response = TaskEditor.CompleteEntry.Response()
+    presenter.presentEntryCompletion(response: response)
+  }
+}
+

@@ -12,20 +12,27 @@
 
 import UIKit
 
-protocol TaskEditorPresentationLogic
-{
-  func presentSomething(response: TaskEditor.Something.Response)
+protocol TaskEditorPresentationLogic: AnyObject {
+  func presentInitials(response: TaskEditor.SetupInitials.Response)
+  func presentEntryCompletion(response: TaskEditor.CompleteEntry.Response)
 }
 
-class TaskEditorPresenter: TaskEditorPresentationLogic
-{
-  weak var viewController: TaskEditorDisplayLogic?
+final class TaskEditorPresenter {
+  private weak var displayer: TaskEditorDisplayLogic?
   
-  // MARK: Do something
+  init(displayer: TaskEditorDisplayLogic) {
+    self.displayer = displayer
+  }
+}
+
+extension TaskEditorPresenter: TaskEditorPresentationLogic {
+  func presentInitials(response: TaskEditor.SetupInitials.Response) {
+    let viewModel = TaskEditor.SetupInitials.ViewModel(initialText: response.initialText)
+    displayer?.displayInitials(viewModel: viewModel)
+  }
   
-  func presentSomething(response: TaskEditor.Something.Response)
-  {
-    let viewModel = TaskEditor.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentEntryCompletion(response: TaskEditor.CompleteEntry.Response) {
+    let viewModel = TaskEditor.CompleteEntry.ViewModel()
+    displayer?.displayEntryCompletion(viewModel: viewModel)
   }
 }

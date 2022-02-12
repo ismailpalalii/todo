@@ -12,49 +12,28 @@
 
 import UIKit
 
-@objc protocol TaskEditorRoutingLogic
-{
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+protocol TaskEditorRoutingLogic: AnyObject {
+  func routeToBack()
 }
 
-protocol TaskEditorDataPassing
-{
-  var dataStore: TaskEditorDataStore? { get }
+protocol TaskEditorDataPassing: AnyObject {
+  var dataStore: TaskEditorDataStoreProtocol { get }
 }
 
-class TaskEditorRouter: NSObject, TaskEditorRoutingLogic, TaskEditorDataPassing
-{
-  weak var viewController: TaskEditorViewController?
-  var dataStore: TaskEditorDataStore?
+final class TaskEditorRouter: TaskEditorDataPassing {
+  var dataStore: TaskEditorDataStoreProtocol
+  private weak var viewController: TaskEditorViewController?
   
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+  init(dataStore: TaskEditorDataStoreProtocol,
+       viewController: TaskEditorViewController) {
+    
+    self.dataStore = dataStore
+    self.viewController = viewController
+  }
+}
 
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: TaskEditorViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: TaskEditorDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+extension TaskEditorRouter: TaskEditorRoutingLogic {
+  func routeToBack() {
+    viewController?.navigationController?.popViewController(animated: true)
+  }
 }
