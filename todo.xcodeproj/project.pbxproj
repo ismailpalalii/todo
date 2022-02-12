@@ -29,12 +29,18 @@
 		175EC7AA27B83AC7009BCC9D /* TaskEditorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7A527B83AC7009BCC9D /* TaskEditorModels.swift */; };
 		175EC7AB27B83AC7009BCC9D /* TaskEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7A627B83AC7009BCC9D /* TaskEditorInteractor.swift */; };
 		175EC7AD27B83AE8009BCC9D /* TaskEditorDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7AC27B83AE8009BCC9D /* TaskEditorDataStore.swift */; };
-		175EC7C127B84129009BCC9D /* ItemTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7B127B83D1D009BCC9D /* ItemTableCellViewController.swift */; };
 		175EC7C427B8416F009BCC9D /* ItemCellViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7C327B8416F009BCC9D /* ItemCellViewModelable.swift */; };
 		175EC7C827B8419D009BCC9D /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7C627B8419D009BCC9D /* TaskListViewController.swift */; };
 		175EC7C927B8419D009BCC9D /* TaskListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 175EC7C727B8419D009BCC9D /* TaskListViewController.xib */; };
 		175EC7CC27B84216009BCC9D /* TaskListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7CB27B84216009BCC9D /* TaskListTableViewDataSource.swift */; };
 		175EC7CE27B84242009BCC9D /* TaskListTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7CD27B84242009BCC9D /* TaskListTableViewDelegate.swift */; };
+		175EC7D127B8431F009BCC9D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7D027B8431F009BCC9D /* UIViewController+Extensions.swift */; };
+		175EC7D327B8433E009BCC9D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7D227B8433E009BCC9D /* UITableViewCell+Extensions.swift */; };
+		175EC7D527B8436E009BCC9D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7D427B8436E009BCC9D /* UIView+Extensions.swift */; };
+		175EC7D827B843D3009BCC9D /* GlobalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7D727B843D3009BCC9D /* GlobalTypes.swift */; };
+		175EC7DA27B843F5009BCC9D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7D927B843F5009BCC9D /* ServiceLocator.swift */; };
+		175EC7DD27B844AD009BCC9D /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7DB27B844AD009BCC9D /* ItemTableViewCell.swift */; };
+		175EC7DE27B844AD009BCC9D /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 175EC7DC27B844AD009BCC9D /* ItemTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,13 +68,18 @@
 		175EC7A527B83AC7009BCC9D /* TaskEditorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorModels.swift; sourceTree = "<group>"; };
 		175EC7A627B83AC7009BCC9D /* TaskEditorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorInteractor.swift; sourceTree = "<group>"; };
 		175EC7AC27B83AE8009BCC9D /* TaskEditorDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDataStore.swift; sourceTree = "<group>"; };
-		175EC7B127B83D1D009BCC9D /* ItemTableCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableCellViewController.swift; sourceTree = "<group>"; };
-		175EC7B227B83D1D009BCC9D /* ItemTableCellViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableCellViewController.xib; sourceTree = "<group>"; };
 		175EC7C327B8416F009BCC9D /* ItemCellViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModelable.swift; sourceTree = "<group>"; };
 		175EC7C627B8419D009BCC9D /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		175EC7C727B8419D009BCC9D /* TaskListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskListViewController.xib; sourceTree = "<group>"; };
 		175EC7CB27B84216009BCC9D /* TaskListTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewDataSource.swift; sourceTree = "<group>"; };
 		175EC7CD27B84242009BCC9D /* TaskListTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewDelegate.swift; sourceTree = "<group>"; };
+		175EC7D027B8431F009BCC9D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		175EC7D227B8433E009BCC9D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		175EC7D427B8436E009BCC9D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		175EC7D727B843D3009BCC9D /* GlobalTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTypes.swift; sourceTree = "<group>"; };
+		175EC7D927B843F5009BCC9D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		175EC7DB27B844AD009BCC9D /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		175EC7DC27B844AD009BCC9D /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +122,10 @@
 		175EC77E27B81FB1009BCC9D /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				175EC7CF27B842F8009BCC9D /* Extension */,
 				175EC77F27B81FC8009BCC9D /* CoreData */,
+				175EC7D727B843D3009BCC9D /* GlobalTypes.swift */,
+				175EC7D927B843F5009BCC9D /* ServiceLocator.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -182,9 +196,9 @@
 		175EC7C227B84131009BCC9D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				175EC7B127B83D1D009BCC9D /* ItemTableCellViewController.swift */,
-				175EC7B227B83D1D009BCC9D /* ItemTableCellViewController.xib */,
 				175EC7C327B8416F009BCC9D /* ItemCellViewModelable.swift */,
+				175EC7DB27B844AD009BCC9D /* ItemTableViewCell.swift */,
+				175EC7DC27B844AD009BCC9D /* ItemTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -205,6 +219,16 @@
 				175EC7CD27B84242009BCC9D /* TaskListTableViewDelegate.swift */,
 			);
 			path = "DataSource+Delegate";
+			sourceTree = "<group>";
+		};
+		175EC7CF27B842F8009BCC9D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				175EC7D027B8431F009BCC9D /* UIViewController+Extensions.swift */,
+				175EC7D227B8433E009BCC9D /* UITableViewCell+Extensions.swift */,
+				175EC7D427B8436E009BCC9D /* UIView+Extensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +292,7 @@
 				175EC77727B81F27009BCC9D /* LaunchScreen.storyboard in Resources */,
 				175EC7C927B8419D009BCC9D /* TaskListViewController.xib in Resources */,
 				175EC7A127B83AAF009BCC9D /* TaskEditorViewController.xib in Resources */,
+				175EC7DE27B844AD009BCC9D /* ItemTableViewCell.xib in Resources */,
 				175EC77427B81F27009BCC9D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,18 +316,23 @@
 				175EC78927B820A0009BCC9D /* CoreDataStack.swift in Sources */,
 				175EC7A727B83AC7009BCC9D /* TaskEditorPresenter.swift in Sources */,
 				175EC7C427B8416F009BCC9D /* ItemCellViewModelable.swift in Sources */,
+				175EC7D527B8436E009BCC9D /* UIView+Extensions.swift in Sources */,
+				175EC7D127B8431F009BCC9D /* UIViewController+Extensions.swift in Sources */,
 				175EC76827B81F24009BCC9D /* AppDelegate.swift in Sources */,
 				175EC78727B8206A009BCC9D /* Task+TaskObjectConformance.swift in Sources */,
 				175EC79827B8235E009BCC9D /* TaskListRouter.swift in Sources */,
 				175EC7CE27B84242009BCC9D /* TaskListTableViewDelegate.swift in Sources */,
 				175EC76A27B81F24009BCC9D /* SceneDelegate.swift in Sources */,
 				175EC7AB27B83AC7009BCC9D /* TaskEditorInteractor.swift in Sources */,
+				175EC7DA27B843F5009BCC9D /* ServiceLocator.swift in Sources */,
 				175EC78327B82028009BCC9D /* Task+CoreDataProperties.swift in Sources */,
 				175EC77227B81F24009BCC9D /* todo.xcdatamodeld in Sources */,
+				175EC7D827B843D3009BCC9D /* GlobalTypes.swift in Sources */,
 				175EC7AD27B83AE8009BCC9D /* TaskEditorDataStore.swift in Sources */,
+				175EC7D327B8433E009BCC9D /* UITableViewCell+Extensions.swift in Sources */,
 				175EC79A27B8235E009BCC9D /* TaskListInteractor.swift in Sources */,
-				175EC7C127B84129009BCC9D /* ItemTableCellViewController.swift in Sources */,
 				175EC7A027B83AAF009BCC9D /* TaskEditorViewController.swift in Sources */,
+				175EC7DD27B844AD009BCC9D /* ItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
