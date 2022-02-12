@@ -13,12 +13,26 @@
         <view contentMode="scaleToFill" id="eN3-wD-Ji6" customClass="TaskListEmptyStateView" customModule="todo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lazy" translatesAutoresizingMaskIntoConstraints="NO" id="EoT-Ef-PaU">
+                    <rect key="frame" x="57" y="298" width="300" height="300"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="26u-jY-PTE"/>
+                        <constraint firstAttribute="width" constant="300" id="VNU-HO-MBc"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="56X-ED-JVc"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="-383" y="-391"/>
+            <constraints>
+                <constraint firstItem="EoT-Ef-PaU" firstAttribute="centerY" secondItem="eN3-wD-Ji6" secondAttribute="centerY" id="Czv-x1-9BJ"/>
+                <constraint firstItem="EoT-Ef-PaU" firstAttribute="centerX" secondItem="eN3-wD-Ji6" secondAttribute="centerX" id="qOe-4r-a9T"/>
+            </constraints>
+            <point key="canvasLocation" x="-384.05797101449281" y="-391.07142857142856"/>
         </view>
     </objects>
     <resources>
+        <image name="lazy" width="1920" height="1920"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
