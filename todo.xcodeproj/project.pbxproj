@@ -58,6 +58,7 @@
 		175EC76627B81F24009BCC9D /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				175EC77E27B81FB1009BCC9D /* Manager */,
 				175EC76727B81F24009BCC9D /* AppDelegate.swift */,
 				175EC76927B81F24009BCC9D /* SceneDelegate.swift */,
 				175EC76B27B81F24009BCC9D /* ViewController.swift */,
@@ -68,6 +69,21 @@
 				175EC77027B81F24009BCC9D /* todo.xcdatamodeld */,
 			);
 			path = todo;
+			sourceTree = "<group>";
+		};
+		175EC77E27B81FB1009BCC9D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				175EC77F27B81FC8009BCC9D /* CoreData */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		175EC77F27B81FC8009BCC9D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
