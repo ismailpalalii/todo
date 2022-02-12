@@ -12,49 +12,40 @@
 
 import UIKit
 
-@objc protocol TaskListRoutingLogic
-{
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+protocol TaskListRoutingLogic: AnyObject {
+  func routeToTaskEditor(viewModel: TaskList.AddNewTask.ViewModel)
+  func routeToTaskEditorForEditing(viewModel: TaskList.EditTask.ViewModel)
 }
 
-protocol TaskListDataPassing
-{
-  var dataStore: TaskListDataStore? { get }
+protocol TaskListDataPassing: AnyObject {
+  var dataStore: TaskListDataStoreProtocol { get }
 }
 
-class TaskListRouter: NSObject, TaskListRoutingLogic, TaskListDataPassing
-{
-  weak var viewController: TaskListViewController?
-  var dataStore: TaskListDataStore?
+final class TaskListRouter {
+  var dataStore: TaskListDataStoreProtocol
+  private weak var viewController: TaskListViewController?
   
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+  init(dataStore: TaskListDataStoreProtocol,
+       viewController: TaskListViewController) {
+    
+    self.dataStore = dataStore
+    self.viewController = viewController
+  }
+}
 
-  // MARK: Navigation
+extension TaskListRouter: TaskListRoutingLogic {
+  func routeToTaskEditor(viewModel: TaskList.AddNewTask.ViewModel) {
+    routeToTaskEditor(handler: viewModel.handler)
+  }
   
-  //func navigateToSomewhere(source: TaskListViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+  func routeToTaskEditorForEditing(viewModel: TaskList.EditTask.ViewModel) {
+    routeToTaskEditor(handler: viewModel.handler, initialText: viewModel.initialText)
+  }
   
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: TaskListDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  private func routeToTaskEditor(handler: @escaping (String?) -> Void, initialText: String? = nil) {
+    let taskEditor: TaskEditorViewController = ServiceLocator.makeTaskEditorViewController(taskEditorOperationDidEnd: handler,
+                                                                                           initialText: initialText)
+    
+    viewController?.navigationController?.pushViewController(taskEditor, animated: true)
+  }
 }

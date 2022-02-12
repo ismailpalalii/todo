@@ -12,20 +12,39 @@
 
 import UIKit
 
-protocol TaskListPresentationLogic
-{
-  func presentSomething(response: TaskList.Something.Response)
+protocol TaskListPresentationLogic: AnyObject {
+  func presentTasks(response: TaskList.FetchTasks.Response)
+  func presentNewTaskAddition(response: TaskList.AddNewTask.Response)
+  func presentTaskEditing(response: TaskList.EditTask.Response)
+  func presentTaskDeletion(response: TaskList.DeleteTask.Response)
 }
 
-class TaskListPresenter: TaskListPresentationLogic
-{
-  weak var viewController: TaskListDisplayLogic?
+final class TaskListPresenter {
+  private weak var displayer: TaskListDisplayLogic?
   
-  // MARK: Do something
+  init(displayer: TaskListDisplayLogic) {
+    self.displayer = displayer
+  }
+}
+
+extension TaskListPresenter: TaskListPresentationLogic {
+  func presentTasks(response: TaskList.FetchTasks.Response) {
+    let viewModel = TaskList.FetchTasks.ViewModel(response: response)
+    displayer?.displayTasks(viewModel: viewModel)
+  }
   
-  func presentSomething(response: TaskList.Something.Response)
-  {
-    let viewModel = TaskList.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentNewTaskAddition(response: TaskList.AddNewTask.Response) {
+    let viewModel = TaskList.AddNewTask.ViewModel(response: response)
+    displayer?.displayNewTaskAddition(viewModel: viewModel)
+  }
+  
+  func presentTaskEditing(response: TaskList.EditTask.Response) {
+    let viewModel = TaskList.EditTask.ViewModel(response: response)
+    displayer?.displayTaskEditing(viewModel: viewModel)
+  }
+  
+  func presentTaskDeletion(response: TaskList.DeleteTask.Response) {
+    let viewModel = TaskList.DeleteTask.ViewModel(response: response)
+    displayer?.displayTaskDeletion(viewModel: viewModel)
   }
 }

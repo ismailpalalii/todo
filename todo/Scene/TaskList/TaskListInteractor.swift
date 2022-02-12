@@ -10,32 +10,99 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import Foundation
 
-protocol TaskListBusinessLogic
-{
-  func doSomething(request: TaskList.Something.Request)
+protocol TaskListBusinessLogic: AnyObject {
+  func fetchTasks(request: TaskList.FetchTasks.Request)
+  func addNewTask(request: TaskList.AddNewTask.Request)
+  func editTask(request: TaskList.EditTask.Request)
+  func deleteTask(request: TaskList.DeleteTask.Request)
 }
 
-protocol TaskListDataStore
-{
-  //var name: String { get set }
-}
-
-class TaskListInteractor: TaskListBusinessLogic, TaskListDataStore
-{
-  var presenter: TaskListPresentationLogic?
-  var worker: TaskListWorker?
-  //var name: String = ""
+final class TaskListInteractor {
+  private let persistenceLayer: PersistenceLayer
+  private let dataStore: TaskListDataStoreProtocol
+  private let presenter: TaskListPresentationLogic
   
-  // MARK: Do something
-  
-  func doSomething(request: TaskList.Something.Request)
-  {
-    worker = TaskListWorker()
-    worker?.doSomeWork()
+  init(persistenceLayer: PersistenceLayer,
+       dataStore: TaskListDataStoreProtocol,
+       presenter: TaskListPresentationLogic) {
     
-    let response = TaskList.Something.Response()
-    presenter?.presentSomething(response: response)
+    self.persistenceLayer = persistenceLayer
+    self.dataStore = dataStore
+    self.presenter = presenter
+  }
+}
+
+// MARK: Business Logic
+
+extension TaskListInteractor: TaskListBusinessLogic {
+  func fetchTasks(request: TaskList.FetchTasks.Request) {
+    let tasks = persistenceLayer.fetch()
+    dataStore.tasks = tasks
+    
+    let response = TaskList.FetchTasks.Response(tasks: tasks)
+    presenter.presentTasks(response: response)
+  }
+  
+  func addNewTask(request: TaskList.AddNewTask.Request) {
+    let response = TaskList.AddNewTask.Response(handler: addTaskHandler)
+    presenter.presentNewTaskAddition(response: response)
+  }
+  
+  func editTask(request: TaskList.EditTask.Request) {
+    dataStore.editingTask = dataStore.tasks[request.index]
+    
+    // Force unwrapping here, because we are sure that the dataStore has editingTask
+    let response = TaskList.EditTask.Response(initialText: dataStore.editingTask!.taskDescription, handler: editTaskHandler)
+    presenter.presentTaskEditing(response: response)
+  }
+  
+  func deleteTask(request: TaskList.DeleteTask.Request) {
+    let taskToDelete = dataStore.tasks[request.index]
+    persistenceLayer.delete(task: taskToDelete)
+    dataStore.tasks = persistenceLayer.fetch()
+    
+    let response = TaskList.DeleteTask.Response(tasks: dataStore.tasks)
+    presenter.presentTaskDeletion(response: response)
+  }
+}
+
+// MARK: Operations
+
+extension TaskListInteractor {
+  func addTaskHandler(with description: String?) {
+    guard let description = description,
+          description.count > 0 else {
+      print("Text is nil or empty, thus not added as a new task")
+      return
+    }
+    
+    persistenceLayer.save(text: description)
+    updateTasks()
+  }
+  
+  func editTaskHandler(with description: String?) {
+    guard let description = description,
+          description.count > 0 else {
+      print("Text is nil or empty, thus not editing the task")
+      return
+    }
+    
+    guard let editingTask = dataStore.editingTask else {
+      print("Editing task not found")
+      return
+    }
+    
+    persistenceLayer.update(task: editingTask, with: description)
+    updateTasks()
+    dataStore.editingTask = nil
+  }
+  
+  func updateTasks() {
+    dataStore.tasks = persistenceLayer.fetch()
+    
+    let response = TaskList.FetchTasks.Response(tasks: dataStore.tasks)
+    presenter.presentTasks(response: response)
   }
 }

@@ -23,6 +23,7 @@
 		175EC79827B8235E009BCC9D /* TaskListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC79327B8235E009BCC9D /* TaskListRouter.swift */; };
 		175EC79927B8235E009BCC9D /* TaskListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC79427B8235E009BCC9D /* TaskListModels.swift */; };
 		175EC79A27B8235E009BCC9D /* TaskListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC79527B8235E009BCC9D /* TaskListInteractor.swift */; };
+		175EC79C27B82524009BCC9D /* TaskListDatastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC79B27B82524009BCC9D /* TaskListDatastore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		175EC79327B8235E009BCC9D /* TaskListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRouter.swift; sourceTree = "<group>"; };
 		175EC79427B8235E009BCC9D /* TaskListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModels.swift; sourceTree = "<group>"; };
 		175EC79527B8235E009BCC9D /* TaskListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListInteractor.swift; sourceTree = "<group>"; };
+		175EC79B27B82524009BCC9D /* TaskListDatastore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDatastore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,10 +131,11 @@
 			children = (
 				175EC78D27B82345009BCC9D /* TaskListViewController.swift */,
 				175EC78E27B82345009BCC9D /* TaskListViewController.xib */,
+				175EC79527B8235E009BCC9D /* TaskListInteractor.swift */,
 				175EC79127B8235E009BCC9D /* TaskListPresenter.swift */,
 				175EC79327B8235E009BCC9D /* TaskListRouter.swift */,
 				175EC79427B8235E009BCC9D /* TaskListModels.swift */,
-				175EC79527B8235E009BCC9D /* TaskListInteractor.swift */,
+				175EC79B27B82524009BCC9D /* TaskListDatastore.swift */,
 			);
 			path = TaskList;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				175EC79627B8235E009BCC9D /* TaskListPresenter.swift in Sources */,
 				175EC78227B82028009BCC9D /* Task+CoreDataClass.swift in Sources */,
 				175EC79927B8235E009BCC9D /* TaskListModels.swift in Sources */,
+				175EC79C27B82524009BCC9D /* TaskListDatastore.swift in Sources */,
 				175EC78927B820A0009BCC9D /* CoreDataStack.swift in Sources */,
 				175EC76827B81F24009BCC9D /* AppDelegate.swift in Sources */,
 				175EC78727B8206A009BCC9D /* Task+TaskObjectConformance.swift in Sources */,

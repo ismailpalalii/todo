@@ -10,22 +10,102 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import Foundation
 
-enum TaskList
-{
-  // MARK: Use cases
+// MARK: Use cases
+
+enum TaskList {
+  struct TaskCellViewModel: ItemCellViewModelable {
+    var labelText: String
+    
+    init(task: TaskObject) {
+      labelText = task.taskDescription
+    }
+  }
   
-  enum Something
-  {
-    struct Request
-    {
+  // MARK: Initialization
+  
+  enum TaskInitialization {
+    class Request {}
+    
+    struct Response {
+      let tasks: [TaskObject]
     }
-    struct Response
-    {
+    
+    struct ViewModel {
+      let cellViewModels: [TaskCellViewModel]
+      
+      init(response: Response) {
+        cellViewModels = response.tasks.map(TaskCellViewModel.init)
+      }
     }
-    struct ViewModel
-    {
+  }
+  
+  typealias FetchTasks = TaskInitialization
+  
+  enum DeleteTask {
+    class Request: TaskInitialization.Request {
+      let index: Int
+      
+      init(index: Int) {
+        self.index = index
+        super.init()
+      }
+    }
+    
+    typealias Response = TaskInitialization.Response
+    typealias ViewModel = TaskInitialization.ViewModel
+  }
+  
+  // MARK: Operations
+  
+  enum TaskOperation {
+    class Request {}
+    
+    class Response {
+      let handler: TextHandler
+      
+      init(handler: @escaping TextHandler) {
+        self.handler = handler
+      }
+    }
+    
+    class ViewModel {
+      let handler: (String?) -> Void
+      
+      init(response: Response) {
+        handler = response.handler
+      }
+    }
+  }
+  
+  typealias AddNewTask = TaskOperation
+  
+  enum EditTask {
+    class Request: TaskOperation.Request {
+      let index: Int
+      
+      init(index: Int) {
+        self.index = index
+      }
+    }
+    
+    class Response: TaskOperation.Response {
+      let initialText: String
+      
+      init(initialText: String, handler: @escaping TextHandler) {
+        self.initialText = initialText
+        super.init(handler: handler)
+      }
+    }
+    
+    class ViewModel: TaskOperation.ViewModel {
+      let initialText: String
+      
+      init(response: Response) {
+        initialText = response.initialText
+        super.init(response: response)
+      }
     }
   }
 }
