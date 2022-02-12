@@ -41,6 +41,8 @@
 		175EC7DA27B843F5009BCC9D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7D927B843F5009BCC9D /* ServiceLocator.swift */; };
 		175EC7DD27B844AD009BCC9D /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7DB27B844AD009BCC9D /* ItemTableViewCell.swift */; };
 		175EC7DE27B844AD009BCC9D /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 175EC7DC27B844AD009BCC9D /* ItemTableViewCell.xib */; };
+		175EC7E127B846D0009BCC9D /* TaskListEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC7E027B846D0009BCC9D /* TaskListEmptyStateView.swift */; };
+		175EC7E327B846EE009BCC9D /* TaskListEmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 175EC7E227B846EE009BCC9D /* TaskListEmptyStateView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		175EC7D927B843F5009BCC9D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		175EC7DB27B844AD009BCC9D /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		175EC7DC27B844AD009BCC9D /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		175EC7E027B846D0009BCC9D /* TaskListEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListEmptyStateView.swift; sourceTree = "<group>"; };
+		175EC7E227B846EE009BCC9D /* TaskListEmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskListEmptyStateView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		175EC78C27B82324009BCC9D /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				175EC7DF27B8463E009BCC9D /* EmptyStateView */,
 				175EC7CA27B841EB009BCC9D /* DataSource+Delegate */,
 				175EC7C527B8417E009BCC9D /* ViewController */,
 				175EC7C227B84131009BCC9D /* TableViewCell */,
@@ -231,6 +236,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		175EC7DF27B8463E009BCC9D /* EmptyStateView */ = {
+			isa = PBXGroup;
+			children = (
+				175EC7E027B846D0009BCC9D /* TaskListEmptyStateView.swift */,
+				175EC7E227B846EE009BCC9D /* TaskListEmptyStateView.xib */,
+			);
+			path = EmptyStateView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -289,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				175EC7E327B846EE009BCC9D /* TaskListEmptyStateView.xib in Resources */,
 				175EC77727B81F27009BCC9D /* LaunchScreen.storyboard in Resources */,
 				175EC7C927B8419D009BCC9D /* TaskListViewController.xib in Resources */,
 				175EC7A127B83AAF009BCC9D /* TaskEditorViewController.xib in Resources */,
@@ -316,6 +331,7 @@
 				175EC78927B820A0009BCC9D /* CoreDataStack.swift in Sources */,
 				175EC7A727B83AC7009BCC9D /* TaskEditorPresenter.swift in Sources */,
 				175EC7C427B8416F009BCC9D /* ItemCellViewModelable.swift in Sources */,
+				175EC7E127B846D0009BCC9D /* TaskListEmptyStateView.swift in Sources */,
 				175EC7D527B8436E009BCC9D /* UIView+Extensions.swift in Sources */,
 				175EC7D127B8431F009BCC9D /* UIViewController+Extensions.swift in Sources */,
 				175EC76827B81F24009BCC9D /* AppDelegate.swift in Sources */,

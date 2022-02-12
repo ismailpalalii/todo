@@ -78,8 +78,6 @@ extension TaskListViewController: TaskListDisplayLogic {
   func displayTasks(viewModel: TaskList.FetchTasks.ViewModel) {
     tableViewDataSource.cellViewModels = viewModel.cellViewModels
     tableView.reloadData()
-    
-    handleEmptyState(for: viewModel.cellViewModels)
   }
   
   func displayNewTaskAddition(viewModel: TaskList.AddNewTask.ViewModel) {
@@ -92,12 +90,5 @@ extension TaskListViewController: TaskListDisplayLogic {
   
   func displayTaskDeletion(viewModel: TaskList.DeleteTask.ViewModel) {
     tableViewDataSource.cellViewModels = viewModel.cellViewModels
-    handleEmptyState(for: viewModel.cellViewModels)
-  }
-}
-
-private extension TaskListViewController {
-  func handleEmptyState(for viewModels: [ItemCellViewModelable]) {
-    tableView.backgroundView = viewModels.count == 0 ? TaskListEmptyStateView.loadFromNib() : nil
   }
 }

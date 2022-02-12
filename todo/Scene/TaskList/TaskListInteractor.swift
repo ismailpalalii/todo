@@ -54,7 +54,7 @@ extension TaskListInteractor: TaskListBusinessLogic {
     dataStore.editingTask = dataStore.tasks[request.index]
     
     // Force unwrapping here, because we are sure that the dataStore has editingTask
-    let response = TaskList.EditTask.Response(initialText: dataStore.editingTask!.taskDescription, handler: editTaskHandler)
+      let response = TaskList.EditTask.Response(initialText: dataStore.editingTask!.taskDescription, handler: editTaskHandler)
     presenter.presentTaskEditing(response: response)
   }
   

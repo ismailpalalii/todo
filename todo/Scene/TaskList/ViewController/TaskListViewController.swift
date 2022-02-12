@@ -37,17 +37,17 @@ final class TaskListViewController: UIViewController {
 private extension TaskListViewController {
   func configureNavigationItem() {
     navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+      navigationItem.title = "Todo"
   }
   
   func configureTableView() {
-    tableView.register(ItemTableViewCell.nib, forCellReuseIdentifier: ItemTableViewCell.reuseIdentifier)
-    
+    tableView.register(ItemTableViewCell.nib, forCellReuseIdentifier:ItemTableViewCell.reuseIdentifier)
     tableViewDataSource = TaskListTableViewDataSource(cellDeletionHandler: deleteCell)
     tableViewDelegate = TaskListTableViewDelegate(cellSelectionHandler: selectedCell)
-    
+
     tableView.dataSource = tableViewDataSource
     tableView.delegate = tableViewDelegate
-    
+
     tableView.tableFooterView = UIView()
   }
   
@@ -78,6 +78,7 @@ extension TaskListViewController: TaskListDisplayLogic {
   func displayTasks(viewModel: TaskList.FetchTasks.ViewModel) {
     tableViewDataSource.cellViewModels = viewModel.cellViewModels
     tableView.reloadData()
+    handleEmptyState(for: viewModel.cellViewModels)
   }
   
   func displayNewTaskAddition(viewModel: TaskList.AddNewTask.ViewModel) {
@@ -90,5 +91,12 @@ extension TaskListViewController: TaskListDisplayLogic {
   
   func displayTaskDeletion(viewModel: TaskList.DeleteTask.ViewModel) {
     tableViewDataSource.cellViewModels = viewModel.cellViewModels
+    handleEmptyState(for: viewModel.cellViewModels)
+  }
+}
+
+private extension TaskListViewController {
+  func handleEmptyState(for viewModels: [ItemCellViewModelable]) {
+    tableView.backgroundView = viewModels.count == 0 ? TaskListEmptyStateView.loadFromNib() : nil
   }
 }

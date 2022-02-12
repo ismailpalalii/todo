@@ -17,11 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRL-yb-FGJ">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVV-eU-0Bm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YX1-Df-5ih">
-                                <rect key="frame" x="16" y="16" width="288" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKa-pI-Tsy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -29,26 +29,26 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="YX1-Df-5ih" secondAttribute="trailing" constant="16" id="Reg-2r-3yx"/>
-                            <constraint firstItem="YX1-Df-5ih" firstAttribute="leading" secondItem="bRL-yb-FGJ" secondAttribute="leading" constant="16" id="dkH-KR-fnM"/>
-                            <constraint firstItem="YX1-Df-5ih" firstAttribute="top" secondItem="bRL-yb-FGJ" secondAttribute="top" constant="16" id="pbT-Db-77r"/>
-                            <constraint firstAttribute="bottom" secondItem="YX1-Df-5ih" secondAttribute="bottom" constant="16" id="zEB-JZ-g4D"/>
+                            <constraint firstAttribute="trailing" secondItem="VKa-pI-Tsy" secondAttribute="trailing" id="Htu-5I-rp3"/>
+                            <constraint firstAttribute="bottom" secondItem="VKa-pI-Tsy" secondAttribute="bottom" id="K7e-Wz-wdm"/>
+                            <constraint firstItem="VKa-pI-Tsy" firstAttribute="top" secondItem="SVV-eU-0Bm" secondAttribute="top" id="OGc-30-6la"/>
+                            <constraint firstItem="VKa-pI-Tsy" firstAttribute="leading" secondItem="SVV-eU-0Bm" secondAttribute="leading" id="S35-Rk-f8o"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="bRL-yb-FGJ" secondAttribute="trailing" id="Fkq-CO-1M0"/>
-                    <constraint firstItem="bRL-yb-FGJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="S7d-Cz-UW9"/>
-                    <constraint firstItem="bRL-yb-FGJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tYO-gE-g4J"/>
-                    <constraint firstAttribute="bottom" secondItem="bRL-yb-FGJ" secondAttribute="bottom" id="xJS-Ea-7Gb"/>
+                    <constraint firstAttribute="trailing" secondItem="SVV-eU-0Bm" secondAttribute="trailing" id="0ch-1u-Omi"/>
+                    <constraint firstAttribute="bottom" secondItem="SVV-eU-0Bm" secondAttribute="bottom" id="K3S-IC-NLR"/>
+                    <constraint firstItem="SVV-eU-0Bm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ZWg-lx-MN9"/>
+                    <constraint firstItem="SVV-eU-0Bm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gYk-8x-q5a"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="containerView" destination="bRL-yb-FGJ" id="t3d-QS-gIo"/>
-                <outlet property="itemLabel" destination="YX1-Df-5ih" id="qHK-FM-EvW"/>
+                <outlet property="containerView" destination="SVV-eU-0Bm" id="y9Z-gT-drW"/>
+                <outlet property="itemLabel" destination="VKa-pI-Tsy" id="VnO-S1-ptK"/>
             </connections>
-            <point key="canvasLocation" x="133" y="97"/>
+            <point key="canvasLocation" x="139" y="97"/>
         </tableViewCell>
     </objects>
     <resources>
